@@ -65,4 +65,10 @@ public class FractionTest {
         assertEquals(8,f.getDenominator());
         assertEquals(5,f.getNumerator());
     }
+
+    @Test
+    public void testAdd() throws Exception {
+        Fraction f = new Fraction(5,8);
+
+    }
 }
