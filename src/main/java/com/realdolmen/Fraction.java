@@ -60,6 +60,24 @@ public class Fraction {
         return denominator == fraction.denominator;
 
     }
+    public Fraction add(Fraction f){
+        int a = (f.numerator * this.denominator) + (this.numerator * f.numerator);
+        int b = f.denominator * this.denominator;
+
+        return new Fraction(a,b);
+    }
+    public Fraction subtract(Fraction f){
+        int a = (f.numerator * this.denominator) - (this.numerator * f.numerator);
+        int b = f.denominator * this.denominator;
+
+        return new Fraction(a,b);
+    }
+
+    public Fraction reciprocal(){
+        int a = this.denominator;
+        int b = this.numerator;
+        return new Fraction(a,b);
+    }
 
 
 }

@@ -57,4 +57,12 @@ public class FractionTest {
         assertEquals(80, f.getDenominator());
         assertEquals(40, f.getNumerator());
     }
+
+    @Test
+    public void testReciprocal() throws Exception {
+        Fraction f = new Fraction(5,8);
+        f.reciprocal();
+        assertEquals(8,f.getDenominator());
+        assertEquals(5,f.getNumerator());
+    }
 }
