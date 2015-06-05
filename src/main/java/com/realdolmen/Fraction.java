@@ -27,13 +27,35 @@ public class Fraction {
         return numerator + "/" + denominator;
     }
     public double asDouble(){
-        return (double)(numerator/denominator);
+        return ((double)numerator)/denominator;
+    }
+
+    public boolean equalsfraction(Fraction f) {
+        int common = Utilities.greatestCommonFactor(this.numerator,this.denominator);
+        int commontwo = Utilities.greatestCommonFactor(f.numerator,f.denominator);
+        if (this.denominator/common == f.denominator/commontwo || this.numerator/common == f.numerator/commontwo) {
+            return true;
+        }else {
+            return false;
+        }
+
+
     }
 
     public Fraction(int numerator, int denominator) {
         this.numerator = numerator;
         this.denominator = denominator;
         if (denominator == 0) throw new ArithmeticException();
+
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+       if (this == obj){
+           return true;
+       }else{
+           return false;
+       }
 
     }
 }
