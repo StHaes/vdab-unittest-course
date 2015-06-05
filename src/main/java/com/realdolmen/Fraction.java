@@ -50,12 +50,16 @@ public class Fraction {
     }
 
     @Override
-    public boolean equals(Object obj) {
-       if (this == obj){
-           return true;
-       }else{
-           return false;
-       }
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Fraction fraction = (Fraction) o;
+
+        if (numerator != fraction.numerator) return false;
+        return denominator == fraction.denominator;
 
     }
+
+
 }
