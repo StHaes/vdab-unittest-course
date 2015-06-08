@@ -9,10 +9,19 @@ public class Calculator {
         if (s.isEmpty()){
             return 0;
         }else {
-            String[]numberstring = s.split(",");
+
             int a=0;
-            for (int i = 0; i < numberstring.length; i = i + 1) {
-                a = a + Integer.parseInt(numberstring[i]);
+            if (s.substring(0,2).startsWith("//") && s.substring(3,5).endsWith("\n")) {
+                String h = String.valueOf(s.charAt(3));
+                String [] numberstring = s.split(h);
+                for (int i = 0; i < numberstring.length; i = i + 1) {
+                    a = a + Integer.parseInt(numberstring[i]);
+                }
+            }else {
+                String [] secondnumberstring = s.split(",");
+                for (int i = 0; i < secondnumberstring.length; i = i + 1) {
+                    a = a + Integer.parseInt(secondnumberstring[i]);
+                }
             }
 //            int a = Integer.parseInt(s.valueOf(s.charAt(i)));
 //            int b = Integer.parseInt(s.valueOf(s.charAt(2)));

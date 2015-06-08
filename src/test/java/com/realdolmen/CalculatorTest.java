@@ -40,4 +40,11 @@ public class CalculatorTest {
         Calculator c = new Calculator();
         assertEquals(150,c.add("25,100,25"));
     }
+
+//    @Test
+//    public void testDelimiterCanBeImplemented() throws Exception {
+//        Calculator c = new Calculator();
+//        assertEquals(75, c.add("//*\n25*50*30"));
+//
+//    }
 }
