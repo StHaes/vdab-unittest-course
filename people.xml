@@ -1,0 +1,4 @@
+<dataset>
+    <people id="1" firstName="Jimi"  lastName="Hendrix" birthDate="2011-08-15" street="Toverberg" number="6" postalCode="3001" city="Louvain" />
+    <people id="2" firstName="Janis" lastName="Joplin" birthDate="2011-09-16" street="A met" number="12" postalCode="300" city="Louvain"/>
+</dataset>
