@@ -1,11 +1,9 @@
 package com.realdolmen;
 
 
-import junit.framework.Assert;
 import org.dbunit.database.DatabaseConnection;
 import org.dbunit.database.IDatabaseConnection;
 import org.dbunit.dataset.IDataSet;
-import org.dbunit.dataset.xml.FlatXmlDataSet;
 import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
 import org.dbunit.operation.DatabaseOperation;
 import org.junit.Before;
@@ -13,9 +11,6 @@ import org.junit.Test;
 
 import java.io.File;
 import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.*;
-import java.util.*;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
@@ -32,26 +27,26 @@ public class SuperClassOfTests {
 
         IDataSet peopleDataSet = new FlatXmlDataSetBuilder().build(new File("people.xml"));
 
-        DatabaseOperation.CLEAN_INSERT.execute(connection,peopleDataSet);
+        DatabaseOperation.CLEAN_INSERT.execute(connection, peopleDataSet);
     }
 
     @Test
     public void testPersonFoundByIDAndFirstname() throws Exception {
         Person p = new JdbcPersonRepository().find(1);
-        assertEquals("Jimi",p.getFirstName());
+        assertEquals("Jimi", p.getFirstName());
 
     }
 
     @Test
     public void testlastName() throws Exception {
         Person p = new JdbcPersonRepository().find(2);
-        assertEquals("Joplin",p.getLastName());
+        assertEquals("Joplin", p.getLastName());
     }
 
     @Test
     public void testBirthDateExists() throws Exception {
         Person p = new JdbcPersonRepository().find(1);
-        assertEquals("2011-08-15",p.getBirthDate().toString());
+        assertEquals("2011-08-15", p.getBirthDate().toString());
     }
 
     @Test
@@ -66,20 +61,18 @@ public class SuperClassOfTests {
     @Test
     public void testSaveNewPerson() throws Exception {
         JdbcPersonRepository j = new JdbcPersonRepository();
-        Person p = new Person("Daenerys","Targaryen",new java.util.Date(2015-8-24),new Address("Mereen","6",new City("Westeros","1337")));
+        Person p = new Person("Daenerys", "Targaryen", new java.util.Date(2015 - 8 - 24), new Address("Mereen", "6", new City("Westeros", "1337")));
         j.save(p);
-        assertEquals("Daenerys",j.find(3).getFirstName());
+        assertEquals("Daenerys", j.find(3).getFirstName());
     }
 
     @Test
     public void testDeleteCreatedPersonAKATheQueenOfTheAndals() throws Exception {
         JdbcPersonRepository j = new JdbcPersonRepository();
-//        Person p = new Person("Robert","Stark",new java.util.Date(2015-9-24),new Address("Winterfell","1337",new City("Beyond the wall","1337")));
-//        j.save(p);
         try {
             j.remove(j.find(4));
             assertNull(j.find(4));
-        } catch (NullPointerException n){
+        } catch (NullPointerException n) {
             n.getStackTrace();
         }
 

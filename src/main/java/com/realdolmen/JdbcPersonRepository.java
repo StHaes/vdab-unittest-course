@@ -11,19 +11,19 @@ import java.sql.*;
  */
 public class JdbcPersonRepository implements PersonRepository {
     /**
-     CREATE TABLE `people` (
-     `id` int(11) NOT NULL AUTO_INCREMENT,
-     `firstName` varchar(255) DEFAULT NULL,
-     `lastName` varchar(255) DEFAULT NULL,
-     `street` varchar(255) DEFAULT NULL,
-     `number` varchar(255) DEFAULT NULL,
-     `city` varchar(255) DEFAULT NULL,
-     `postalcode` varchar(255) DEFAULT NULL,
-     `birthDate` date DEFAULT NULL,
-     PRIMARY KEY (`id`)
-     ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
-     SELECT * FROM test.people;
-    */
+     * CREATE TABLE `people` (
+     * `id` int(11) NOT NULL AUTO_INCREMENT,
+     * `firstName` varchar(255) DEFAULT NULL,
+     * `lastName` varchar(255) DEFAULT NULL,
+     * `street` varchar(255) DEFAULT NULL,
+     * `number` varchar(255) DEFAULT NULL,
+     * `city` varchar(255) DEFAULT NULL,
+     * `postalcode` varchar(255) DEFAULT NULL,
+     * `birthDate` date DEFAULT NULL,
+     * PRIMARY KEY (`id`)
+     * ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+     * SELECT * FROM test.people;
+     */
 
     private Logger logger = LoggerFactory.getLogger(getClass());
 
@@ -37,9 +37,9 @@ public class JdbcPersonRepository implements PersonRepository {
                 statement.setInt(1, id);
                 ResultSet resultSet = statement.executeQuery();
                 resultSet.next();
-                if (resultSet.next()==false){ // needed for remove
+                if (resultSet.next() == false) { // needed for remove
                     return null;
-                }else {
+                } else {
                     return new PersonMapper().implode(resultSet);
                 }
             }
@@ -61,7 +61,7 @@ public class JdbcPersonRepository implements PersonRepository {
     }
 
     private void validateSuccess(PreparedStatement statement, String message) throws SQLException {
-        if(statement.executeUpdate() != 1) {
+        if (statement.executeUpdate() != 1) {
             throw new RepositoryException(message);
         }
     }
@@ -73,8 +73,8 @@ public class JdbcPersonRepository implements PersonRepository {
             @Override
             public Void execute(Connection connection) throws SQLException {
                 PreparedStatement statement = connection.prepareStatement(
-                    "insert into people(firstName, lastName, birthDate, street, number, postalCode, city) values(?, ?, ?, ?, ?, ?, ?)",
-                    Statement.RETURN_GENERATED_KEYS
+                        "insert into people(firstName, lastName, birthDate, street, number, postalCode, city) values(?, ?, ?, ?, ?, ?, ?)",
+                        Statement.RETURN_GENERATED_KEYS
                 );
                 new PersonMapper().explode(person, statement);
                 validateSuccess(statement, "Unable to save person");
@@ -123,6 +123,7 @@ public class JdbcPersonRepository implements PersonRepository {
 
     /**
      * Creates a new JDBC connection.
+     *
      * @return A newly opened JDBC connection.
      * @throws SQLException When a connection could not be made.
      */
@@ -131,9 +132,9 @@ public class JdbcPersonRepository implements PersonRepository {
     }
 
     private static <T> T execute(StatementExecutor<T> statementExecutor) {
-        try(Connection connection = createConnection()) {
+        try (Connection connection = createConnection()) {
             return statementExecutor.execute(connection);
-        } catch(SQLException exception) {
+        } catch (SQLException exception) {
             throw new RepositoryException("Unable to execute statement", exception);
         }
     }

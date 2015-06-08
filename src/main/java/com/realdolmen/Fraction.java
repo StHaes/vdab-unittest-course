@@ -8,9 +8,9 @@ public class Fraction {
     private int denominator;
 
 
-    public String simplify(){
-        int common = Utilities.greatestCommonFactor(numerator,denominator);
-        return numerator/common + " " + denominator/common;
+    public String simplify() {
+        int common = Utilities.greatestCommonFactor(numerator, denominator);
+        return numerator / common + " " + denominator / common;
 
     }
 
@@ -26,16 +26,17 @@ public class Fraction {
     public String toString() {
         return numerator + "/" + denominator;
     }
-    public double asDouble(){
-        return ((double)numerator)/denominator;
+
+    public double asDouble() {
+        return ((double) numerator) / denominator;
     }
 
     public boolean equalsfraction(Fraction f) {
-        int common = Utilities.greatestCommonFactor(this.numerator,this.denominator);
-        int commontwo = Utilities.greatestCommonFactor(f.numerator,f.denominator);
-        if (this.denominator/common == f.denominator/commontwo || this.numerator/common == f.numerator/commontwo) {
+        int common = Utilities.greatestCommonFactor(this.numerator, this.denominator);
+        int commontwo = Utilities.greatestCommonFactor(f.numerator, f.denominator);
+        if (this.denominator / common == f.denominator / commontwo || this.numerator / common == f.numerator / commontwo) {
             return true;
-        }else {
+        } else {
             return false;
         }
 
@@ -60,23 +61,25 @@ public class Fraction {
         return denominator == fraction.denominator;
 
     }
-    public Fraction add(Fraction f){
+
+    public Fraction add(Fraction f) {
         int a = (f.numerator * this.denominator) + (this.numerator * f.numerator);
         int b = f.denominator * this.denominator;
 
-        return new Fraction(a,b);
+        return new Fraction(a, b);
     }
-    public Fraction subtract(Fraction f){
+
+    public Fraction subtract(Fraction f) {
         int a = (f.numerator * this.denominator) - (this.numerator * f.numerator);
         int b = f.denominator * this.denominator;
 
-        return new Fraction(a,b);
+        return new Fraction(a, b);
     }
 
-    public Fraction reciprocal(){
+    public Fraction reciprocal() {
         int a = this.denominator;
         int b = this.numerator;
-        return new Fraction(a,b);
+        return new Fraction(a, b);
     }
 
 

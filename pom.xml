@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
 
@@ -22,21 +22,21 @@
                     <target>1.7</target>
                 </configuration>
             </plugin>
-			
-			<!-- To make mutation tests work. -->
-			<plugin>
-				<groupId>org.pitest</groupId>
-				<artifactId>pitest-maven</artifactId>
-				<version>1.0.0</version>
-				<configuration>
-					<targetClasses>
-						<param>com.realdolmen.*</param>
-					</targetClasses>
-					<targetTests>
-						<param>com.realdolmen.*</param>
-					</targetTests>
-				</configuration>
-			</plugin>
+
+            <!-- To make mutation tests work. -->
+            <plugin>
+                <groupId>org.pitest</groupId>
+                <artifactId>pitest-maven</artifactId>
+                <version>1.0.0</version>
+                <configuration>
+                    <targetClasses>
+                        <param>com.realdolmen.*</param>
+                    </targetClasses>
+                    <targetTests>
+                        <param>com.realdolmen.*</param>
+                    </targetTests>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 

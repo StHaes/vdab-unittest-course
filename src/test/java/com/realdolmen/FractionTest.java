@@ -3,7 +3,6 @@ package com.realdolmen;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.startsWith;
-import static org.hamcrest.core.CombinableMatcher.both;
 import static org.junit.Assert.*;
 
 /**
@@ -60,15 +59,15 @@ public class FractionTest {
 
     @Test
     public void testReciprocal() throws Exception {
-        Fraction f = new Fraction(5,8);
+        Fraction f = new Fraction(5, 8);
         f.reciprocal();
-        assertEquals(8,f.getDenominator());
-        assertEquals(5,f.getNumerator());
+        assertEquals(8, f.getDenominator());
+        assertEquals(5, f.getNumerator());
     }
 
     @Test
     public void testAdd() throws Exception {
-        Fraction f = new Fraction(5,8);
+        Fraction f = new Fraction(5, 8);
 
     }
 }
