@@ -73,7 +73,7 @@ public class SuperClassOfTests {
             j.remove(j.find(4));
             assertNull(j.find(4));
         } catch (NullPointerException n) {
-            n.getStackTrace();
+            n.printStackTrace();
         }
 
 
