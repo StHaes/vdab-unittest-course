@@ -36,8 +36,7 @@ public class JdbcPersonRepository implements PersonRepository {
                 PreparedStatement statement = connection.prepareStatement("select * from people p where p.id = ?");
                 statement.setInt(1, id);
                 ResultSet resultSet = statement.executeQuery();
-                resultSet.next();
-                if (resultSet.next() == false) { // needed for remove
+                if (!resultSet.next()) { // needed for remove
                     return null;
                 } else {
                     return new PersonMapper().implode(resultSet);

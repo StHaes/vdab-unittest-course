@@ -63,15 +63,15 @@ public class SuperClassOfTests {
         JdbcPersonRepository j = new JdbcPersonRepository();
         Person p = new Person("Daenerys", "Targaryen", new java.util.Date(2015 - 8 - 24), new Address("Mereen", "6", new City("Westeros", "1337")));
         j.save(p);
-        assertEquals("Daenerys", j.find(3).getFirstName());
+        assertEquals("Daenerys", j.find(p.getId()).getFirstName());
     }
 
     @Test
     public void testDeleteCreatedPersonAKATheQueenOfTheAndals() throws Exception {
         JdbcPersonRepository j = new JdbcPersonRepository();
         try {
-            j.remove(j.find(4));
-            assertNull(j.find(4));
+            j.remove(j.find(2));
+            assertNull(j.find(2));
         } catch (NullPointerException n) {
             n.printStackTrace();
         }

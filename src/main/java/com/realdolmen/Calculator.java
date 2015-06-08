@@ -11,7 +11,7 @@ public class Calculator {
         }else {
 
             int a=0;
-            if (s.substring(0,2).startsWith("//") && s.substring(3,5).endsWith("\n")) {
+            if (s.startsWith("//") && s.substring(3,5).endsWith("\n")) {
                 String h = String.valueOf(s.charAt(3));
                 String [] numberstring = s.split(h);
                 for (int i = 0; i < numberstring.length; i = i + 1) {
